@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NICO Cafe — Make Your Coffee</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#home">NICO <span>Cafe</span></a>
+    <a href="#coffee-maker">Make a coffee ↗</a>
+  </header>
+
+  <main id="home">
+    <section class="intro">
+      <p class="small-title">A LITTLE COFFEE BREAK</p>
+      <h1>Your coffee, <em>your way.</em></h1>
+      <p>Welcome to NICO Cafe. Choose a drink, add your favorite extras,<br>
+        and make a little moment for yourself.</p>
+    </section>
+
+    <section class="coffee-maker" id="coffee-maker" aria-label="Make your coffee">
+      <div class="preview">
+        <p class="small-title">YOUR CUP</p>
+        <div class="photo-stage" id="cup">
+          <img id="drink-image" src="images/latte.jpg" alt="A creamy latte in a clear glass mug">
+          <img class="ice-photo" id="ice-cubes" src="images/ice.png" alt="Added ice cubes">
+          <img class="cream-photo" id="cream-topping" src="images/cream.png" alt="Added whipped cream">
+        </div>
+        <h2 id="drink-name">Latte</h2>
+        <p id="drink-description">A smooth coffee with a little milk.</p>
+        <p class="temperature" id="temperature">Warm & cozy</p>
+        <p class="milk-note" id="milk-note">Creamy · 60% milk</p>
+        <div class="sweet-preview">
+          <p id="sweet-label">Sweetness · 40%</p>
+          <div class="sweet-track"><div id="sweet-fill"></div></div>
+        </div>
+        <p class="hand-note">good coffee, better days ♡</p>
+      </div>
+
+      <div class="customize">
+        <p class="small-title">MAKE IT YOURS</p>
+        <h2>What's your mood today?</h2>
+        <fieldset id="controls">
+          <legend class="sr-only">Coffee options</legend>
+          <label for="drink">1. Choose your drink</label>
+          <select id="drink">
+            <option value="Latte">Latte</option>
+            <option value="Espresso">Espresso</option>
+            <option value="Americano">Americano</option>
+            <option value="Matcha Latte">Matcha Latte</option>
+          </select>
+
+          <div class="range-title"><label for="milk">2. Milk ratio</label><output id="milk-value" for="milk">60%</output></div>
+          <input type="range" id="milk" min="0" max="100" step="5" value="60">
+          <div class="range-labels"><span>More bold</span><span>More creamy</span></div>
+
+          <div class="range-title"><label for="sweetness">3. Sweetness</label><output id="sweetness-value" for="sweetness">40%</output></div>
+          <input type="range" id="sweetness" min="0" max="100" step="5" value="40">
+          <div class="range-labels"><span>No sugar</span><span>Extra sweet</span></div>
+
+          <div class="extras">
+            <label><input type="checkbox" id="ice"> Add ice</label>
+            <label><input type="checkbox" id="cream"> Add whipped cream</label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button id="brew-button" type="button">Brew my coffee →</button>
+          <button id="reset-button" class="reset" type="button">Reset</button>
+        </div>
+        <p id="brew-status" role="status">Ready when you are.</p>
+        <div class="result" id="result" hidden>
+          <h3 id="result-title"></h3>
+          <p id="result-recipe"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>NICO Cafe</span><p>A small coffee project by Nicole.<br>Drink images generated with AI.</p><span>Choose · Customize · Brew</span></footer>
+</body>
+</html>

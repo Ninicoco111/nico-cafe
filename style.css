@@ -1,0 +1,123 @@
+/* Basic page layout and warm cafe colors. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #faf6ef;
+  color: #4d3326;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+header, main, footer { max-width: 1050px; margin: auto; }
+header {
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e4d8c9;
+}
+a { color: #6f4933; text-decoration: none; }
+header > a:last-child { font-size: 13px; }
+.logo { font-family: Georgia, serif; font-size: 28px; letter-spacing: 2px; }
+.logo span { font-style: italic; font-size: 24px; letter-spacing: 0; }
+.intro { padding: 38px 25px 32px; text-align: center; }
+.small-title { font-size: 10px; letter-spacing: 2px; color: #90765e; }
+h1, h2, h3 { font-family: Georgia, serif; font-weight: normal; }
+h1 { font-size: 46px; line-height: 1.1; margin: 12px 0 18px; }
+h1 em { color: #a17855; }
+.intro > p:last-child { font-size: 14px; color: #897464; }
+.coffee-maker {
+  display: flex;
+  gap: 36px;
+  padding: 0 30px 38px;
+  align-items: stretch;
+}
+.preview {
+  width: 44%;
+  background: #eee1cc;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+.preview > .small-title { text-align: left; }
+.preview h2 { font-size: 32px; margin: 12px 0 8px; }
+#drink-description { font-size: 12px; color: #886b53; }
+.temperature {
+  display: inline-block;
+  padding: 5px 12px;
+  border: 1px solid #cdb89e;
+  border-radius: 20px;
+  font-size: 10px;
+  color: #87664a;
+}
+.sweet-preview { max-width: 180px; margin: 18px auto; }
+.sweet-preview p { font-size: 10px; color: #87664a; }
+.sweet-track { height: 5px; background: #dcc7aa; border-radius: 5px; }
+#sweet-fill { height: 100%; background: #a57950; border-radius: 5px; }
+.hand-note { font-family: Georgia, serif; font-style: italic; font-size: 16px; color: #9a7555; }
+
+/* Local photos replace the CSS-drawn cup. */
+.photo-stage { position: relative; width: 100%; margin: 0 auto; }
+#drink-image { display: block; width: 100%; border-radius: 8px; }
+.ice-photo, .cream-photo { position: absolute; display: none; object-fit: contain; }
+.ice-photo { left: 30%; top: 33%; width: 40%; height: 18%; opacity: 0.85; }
+.cream-photo { left: 24%; top: 13%; width: 50%; height: 27%; }
+.milk-note { font-size: 11px; color: #886b53; margin: 0; }
+
+/* Form controls use normal labels, inputs, and buttons. */
+.customize { flex: 1; padding: 6px 0; min-width: 0; }
+.customize h2 { font-size: 28px; margin: 12px 0 24px; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+label { font-size: 13px; }
+select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 24px;
+  border: 1px solid #d9c8b4;
+  border-radius: 6px;
+  background: #fffaf3;
+  color: #5a3b28;
+  font-size: 14px;
+}
+.range-title { display: flex; justify-content: space-between; margin-bottom: 10px; }
+output { font-size: 13px; color: #97704c; }
+input[type='range'] { width: 100%; margin: 0; accent-color: #805336; cursor: pointer; }
+.range-labels { display: flex; justify-content: space-between; font-size: 10px; color: #a08872; margin: 5px 0 22px; }
+.extras { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 20px 0 26px; }
+.extras label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+input[type='checkbox'] { accent-color: #805336; width: 16px; height: 16px; }
+.actions { display: flex; gap: 10px; }
+button { border: 0; border-radius: 6px; padding: 13px 18px; font-size: 13px; cursor: pointer; }
+#brew-button { background: #805336; color: #fff9ed; flex: 1; }
+#brew-button:hover { background: #64402a; }
+.reset { background: #eee1d0; color: #7c5d43; }
+button:disabled, fieldset:disabled { opacity: 0.65; }
+button:disabled { cursor: wait; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid #8b975e; outline-offset: 4px; }
+#brew-status { font-size: 11px; color: #a08772; margin: 12px 0; }
+.result { padding: 14px 18px; background: #efe6d9; border-radius: 6px; }
+.result h3 { margin: 0 0 7px; font-size: 20px; }
+.result p { font-size: 11px; color: #8a6c53; line-height: 1.8; margin: 0; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 15px; border-top: 1px solid #e4d8c9; padding: 20px 30px; font-size: 10px; color: #9c836c; }
+footer > span:first-child { font-family: Georgia, serif; font-size: 17px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+.brewing { animation: brew 0.6s infinite alternate; }
+@keyframes brew { to { transform: translateY(-5px); } }
+
+/* One breakpoint keeps the layout simple on phones. */
+@media (max-width: 700px) {
+  header { padding: 20px; }
+  h1 { font-size: 37px; }
+  .intro { padding: 25px 20px; }
+  .intro br { display: none; }
+  .coffee-maker { flex-direction: column; padding: 0 20px 30px; gap: 25px; }
+  .preview { width: 100%; }
+  .customize h2 { font-size: 26px; }
+  footer { flex-wrap: wrap; padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .brewing { animation: none; }
+  .milk { transition: none; }
+}
